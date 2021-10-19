@@ -1,0 +1,160 @@
+/*===========Deafault=============*/
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--clr-bg: hsl(0, 0%, 98%);
+	--clr-white: hsl(0, 0%, 100%);
+	--clr-black: hsl(50, 10%, 0%);
+	--clr-orange: hsl(39, 100%, 50%);
+	--clr-blue: hsl(210, 100%, 50%);
+	--clr-coral: hsl(16, 100%, 66%);
+}
+h1 {
+	text-align: center;
+	padding: 20px;
+}
+html {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 1rem;
+}
+body {
+	background-color: var(--clr-bg);
+	max-width: 1200px;
+	margin: 0 auto;
+	display: flex;
+}
+/*===========Deafault=============*/
+.container {
+	width: 100%;
+	height: auto;
+	padding: 0.9rem;
+}
+/*===========cards=============*/
+.card-gallery {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: auto;
+	grid-gap: 1.5rem;
+	grid-template-areas:
+		'card-1 card-2 card-3 card-3'
+		'card-1 card-4 card-5 card-6'
+		'card-7 card-7 card-8 card-6';
+}
+
+.card-gallery a {
+	width: 100%;
+	height: 25rem;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+}
+.card-gallery a i {
+	color: rgba(255, 255, 255, 0.6);
+	font-size: 3.5rem;
+	position: relative;
+	z-index: 100;
+	padding: 1rem 3rem;
+	border: 2px solid rgba(255, 255, 255, 0.6);
+	border-radius: 0.5rem;
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+.card-gallery a::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	opacity: 0;
+	transition: opacity 0.5s;
+}
+.card-gallery a:hover i,
+.card-gallery a:hover::before {
+	opacity: 1;
+}
+.card-1 {
+	grid-area: card-1;
+	min-height: 51.5rem;
+	background-image: url('../images/coffee.jpg');
+}
+.card-2 {
+	grid-area: card-2;
+	background-image: url('../images/coffee-2.jpg');
+}
+.card-3 {
+	grid-area: card-3;
+	background-image: url('../images/coffee-3.jpg');
+}
+.card-4 {
+	grid-area: card-4;
+	background-image: url('../images/coffee-4.jpg');
+}
+.card-5 {
+	grid-area: card-5;
+	background-image: url('../images/coffee-5.jpg');
+}
+.card-6 {
+	grid-area: card-6;
+	min-height: 51.5rem;
+	background-image: url('../images/coffee-7.jpg');
+}
+.card-7 {
+	grid-area: card-7;
+	background-image: url('../images/coffee-8.jpg');
+}
+.card-8 {
+	grid-area: card-8;
+	background-image: url('../images/coffee-9.jpg');
+}
+@media screen and (max-width: 900px) {
+	.card-gallery {
+		grid-template-areas:
+			'card-1 card-1 card-2 card-2'
+			'card-1 card-1 card-3 card-3'
+			'card-4 card-4 card-5 card-5'
+			'card-6 card-7 card-7 card-7'
+			'card-8 card-8 card-8 card-8';
+	}
+	.card-gallery a {
+		height: 20rem;
+	}
+	.card-1 {
+		min-height: 41.5rem;
+	}
+	.card-6 {
+		min-height: 20rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.card-gallery {
+		grid-template-areas:
+			'card-1 card-1 card-1 card-1'
+			'card-2 card-2 card-2 card-2'
+			'card-3 card-3 card-3 card-3'
+			'card-4 card-4 card-4 card-4'
+			'card-5 card-5 card-5 card-5'
+			'card-6 card-6 card-6 card-6'
+			'card-7 card-7 card-7 card-7'
+			'card-8 card-8 card-8 card-8';
+	}
+	.card-gallery a,
+	.card-1,
+	.card-6 {
+		min-width: 30rem;
+		height: 30rem;
+	}
+}
